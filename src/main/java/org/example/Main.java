@@ -68,5 +68,8 @@ public class Main {
 
         // bonus: calculates grade total for uni (it's the same since we just have the one course)
         System.out.println(uniService.calculateAverageUniGrade());
+
+        // bonus: prints out list of students with grade 2 or better (it's just the one)
+        System.out.println(uniService.getAllStudentsWithBOrBetter());
     }
 }

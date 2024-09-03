@@ -2,6 +2,9 @@ package org.example;
 
 import lombok.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Data
 @Builder
 public class UniversityService {
@@ -29,6 +32,14 @@ public class UniversityService {
                 .reduce(0D, Double::sum);
         // divides sum of grades by number of courses to get average
         return sum / this.university.courseList().size();
+    }
+
+    // bonus:
+    public List<Student> getAllStudentsWithBOrBetter(){
+        // gets (flatmapped) student list from course list
+        List<Student> students = this.university.courseList().stream().flatMap(course -> course.getStudentList().stream()).toList();
+        // filters student list by grade and returns new list of students
+        return students.stream().filter(student -> student.getGrade() <= 2).collect(Collectors.toList());
     }
 
 }
