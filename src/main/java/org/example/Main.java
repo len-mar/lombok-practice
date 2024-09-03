@@ -27,7 +27,9 @@ public class Main {
                 .id("1").name("Astronomy 101").students(Map.of(fullStudent.getId(), fullStudent)).build();
 
 
-        // prints empty object, full object, and object's name
+        // prints object with empty fields,
+        // object with all fields filled,
+        // and that object's name
         System.out.println(emptyStudent);
         System.out.println(fullStudent);
         System.out.println(fullStudent.getName());
