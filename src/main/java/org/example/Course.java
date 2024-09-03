@@ -3,12 +3,13 @@ package org.example;
 import lombok.*;
 import java.util.Map;
 
+@Value
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Course {
-    private String id, name;
-    private Teacher teacher;
-    private Map<String, Student> students;
+    // all fields private and final via @Value
+    String id, name;
+    Teacher teacher;
+    Map<String, Student> studentMap;
 }
