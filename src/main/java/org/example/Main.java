@@ -23,8 +23,12 @@ public class Main {
                 .subject("Astronomy")
                 .build();
 
-        Course fullCourse = Course.builder().teacher(fullTeacher)
-                .id("1").name("Astronomy 101").students(Map.of(fullStudent.getId(), fullStudent)).build();
+        Course fullCourse = Course.builder()
+                .teacher(fullTeacher)
+                .id("1")
+                .name("Astronomy 101")
+                .students(Map.of(fullStudent.getId(), fullStudent))
+                .build();
 
 
         // prints object with empty fields,
