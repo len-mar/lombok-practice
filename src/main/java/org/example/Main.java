@@ -13,8 +13,15 @@ public class Main {
         Student fullStudent = Student.builder()
                 .name("Hakan")
                 .address("Beispielstreet 123")
-                .grade("B")
+                .grade(2)
                 .id("3")
+                .build();
+
+        Student fullStudent2 = Student.builder()
+                .name("Thea")
+                .address("Beispielstreet 456")
+                .grade(3)
+                .id("4")
                 .build();
 
         Teacher fullTeacher = Teacher.builder()
@@ -27,9 +34,16 @@ public class Main {
                 .teacher(fullTeacher)
                 .id("1")
                 .name("Astronomy 101")
-                .students(Map.of(fullStudent.getId(), fullStudent))
+                .studentList(List.of(fullStudent, fullStudent2))
                 .build();
 
+        // creates a new university and university service
+        University uni = University.builder()
+                .courseList(List.of(fullCourse))
+                .build();
+        UniversityService uniService = UniversityService.builder()
+                .university(uni)
+                .build();
 
         // prints object with empty fields,
         // object with all fields filled,
@@ -49,5 +63,10 @@ public class Main {
         fullTeacher = fullTeacher.withName("Mrs New Name");
         System.out.println(fullTeacher.name());
 
+        // bonus: calculates grade total for course
+        System.out.println(uniService.calculateAverageCourseGrade(fullCourse));
+
+        // bonus: calculates grade total for uni (it's the same since we just have the one course)
+        System.out.println(uniService.calculateAverageUniGrade());
     }
 }

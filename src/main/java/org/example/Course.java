@@ -1,7 +1,7 @@
 package org.example;
 
 import lombok.*;
-import java.util.Map;
+import java.util.*;
 
 @Value
 @Builder
@@ -11,5 +11,5 @@ public class Course {
     // all fields private and final via @Value
     String id, name;
     Teacher teacher;
-    Map<String, Student> studentMap;
+    List<Student> studentList;
 }

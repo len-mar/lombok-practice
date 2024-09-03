@@ -6,5 +6,6 @@ import lombok.*;
 @Data
 @Builder
 public class Student {
-    private String id, name, address, grade;
+    private String id, name, address;
+    private int grade;
 }
